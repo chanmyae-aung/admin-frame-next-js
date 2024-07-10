@@ -9,3 +9,12 @@ export const loginSchema = z.object({
   email: emailSchema,
   password: passwordSchema,
 });
+
+export const dataRowSchema = z.object({
+  id: z.number(),
+  name: z.string().min(1, { message: "Name is required" }),
+  age: z.number().min(0, { message: "Age must be a positive number" }),
+  isEditing: z.boolean(),
+});
+
+export type DataRow = z.infer<typeof dataRowSchema>;
