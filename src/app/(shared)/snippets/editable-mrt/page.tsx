@@ -13,7 +13,7 @@ import {
   IconButton,
   Stack,
 } from "@mui/material";
-import { Delete, Edit, Save } from "@mui/icons-material";
+import { Add, Delete, Edit, Save } from "@mui/icons-material";
 
 interface DataRow {
   id: number;
@@ -30,15 +30,24 @@ const initialData: DataRow[] = [
 const TableComponent: React.FC = () => {
   const [rows, setRows] = useState<DataRow[]>(initialData);
   const [modifiedRows, setModifiedRows] = useState<number[]>([]); // Track modified row IDs
-
-  const handleAddRow = () => {
+  console.log(rows);
+  const handleAddRow = (id: number) => {
     const newRow: DataRow = {
-      id: rows.length + 1,
+      id: rows.length + 1, // Assign the next ID based on the current length of rows
       name: "",
       price: 0,
       isEditing: true,
     };
-    setRows((prevRows) => [...prevRows, newRow]);
+
+    // Find the index of the row with the specified ID
+    const rowIndex = rows.findIndex((row) => row.id === id);
+
+    // Insert the new row after the specified row
+    const newRows = [...rows];
+    newRows.splice(rowIndex + 1, 0, newRow);
+
+    // Update the rows state with the new array
+    setRows(newRows);
   };
 
   const handleDeleteRow = (id: number) => {
@@ -127,9 +136,9 @@ const TableComponent: React.FC = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.id}</TableCell>
+          {rows.map((row, i) => (
+            <TableRow key={i}>
+              <TableCell>{i + 1}</TableCell>
               <TableCell>
                 {row.isEditing ? (
                   <TextField
@@ -170,6 +179,10 @@ const TableComponent: React.FC = () => {
                 <IconButton onClick={() => handleDeleteRow(row.id)}>
                   <Delete />
                 </IconButton>
+                <IconButton onClick={() => handleAddRow(row.id)}>
+                  <Add />
+                </IconButton>
+                
               </TableCell>
             </TableRow>
           ))}
@@ -177,21 +190,17 @@ const TableComponent: React.FC = () => {
       </Table>
       <Stack
         direction={"row"}
-        spacing={3}
         width={"fit-content"}
         m={3}
         ml={"auto"}
       >
-        <Button onClick={handleAddRow} variant="contained" color="primary">
-          Add Row
-        </Button>
         <Button
           onClick={handleSaveAllChanges}
           variant="contained"
           color="primary"
           disabled={modifiedRows.length === 0}
         >
-          Save All
+          Save
         </Button>
       </Stack>
     </TableContainer>
