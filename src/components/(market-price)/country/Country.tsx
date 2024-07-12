@@ -292,7 +292,7 @@ const Country: React.FC = () => {
           ))}
         </TableBody>
       </Table>
-      <Stack direction={"row"} width={"fit-content"} m={3} ml={"auto"}>
+      <Stack direction={"row"} width={"fit-content"} m={3} spacing={3} ml={"auto"}>
         <Button onClick={handleAddRows} variant="contained" color="primary">
           Add
         </Button>
