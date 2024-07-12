@@ -27,7 +27,7 @@ export const menuList: Menu[] = [
     label: "Dashboard",
     link: "/dashboard",
     defLink: "/",
-    children: []
+    children: [],
   },
   {
     icon: <Icons.profile className="w-6 h-6" />,
@@ -42,7 +42,7 @@ export const menuList: Menu[] = [
     label: "Profile",
     link: "/profile",
     defLink: "/",
-    children: []
+    children: [],
   },
   {
     icon: <Icons.snippets className="w-6 h-6" />,
@@ -60,30 +60,60 @@ export const menuList: Menu[] = [
       {
         icon: <Icons.snippetsOutlined className="w-6 h-6" />,
         label: "Buttons",
-        link: "/snippets/buttons"
+        link: "/snippets/buttons",
       },
       {
         icon: <Icons.snippetsOutlined className="w-6 h-6" />,
         label: "Typography",
-        link: "/snippets/typo"
+        link: "/snippets/typo",
       },
       {
         icon: <Icons.snippetsOutlined className="w-6 h-6" />,
         label: "Inputs",
-        link: "/snippets/inputs"
+        link: "/snippets/inputs",
       },
       {
         icon: <Icons.snippetsOutlined className="w-6 h-6" />,
         label: "Form",
-        link: "/snippets/form"
+        link: "/snippets/form",
       },
       {
         icon: <Icons.snippetsOutlined className="w-6 h-6" />,
         label: "Tables",
-        link: "/snippets/table"
-      }
-    ]
-  }
+        link: "/snippets/table",
+      },
+    ],
+  },
+  {
+    icon: <Icons.snippets className="w-6 h-6" />,
+    activeIcon: (
+      <Image
+        src="/uploads/icons/active_latest_bets.svg"
+        width={20}
+        height={20}
+        alt="active_latest_bets"
+      />
+    ),
+    label: "Market Pro",
+    link: "",
+    children: [
+      {
+        icon: <Icons.snippetsOutlined className="w-6 h-6" />,
+        label: "Country",
+        link: "/market-pro/country",
+      },
+      {
+        icon: <Icons.snippetsOutlined className="w-6 h-6" />,
+        label: "Category",
+        link: "/market-pro/category",
+      },
+      {
+        icon: <Icons.snippetsOutlined className="w-6 h-6" />,
+        label: "Sub Category",
+        link: "/market-pro/sub-category",
+      },
+    ],
+  },
 ];
 
 export interface AppBarMenuList {
