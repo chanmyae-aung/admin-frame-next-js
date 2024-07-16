@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write src/**/*.{ts,tsx}",
+    "tsc": "tsc",
+    "fix": "yarn lint --fix && yarn tsc && yarn format"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",

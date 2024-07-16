@@ -1,7 +1,7 @@
-import useSWRMutation from "swr/mutation";
-import appAxios from "@/lib/axios";
-import { LoginForm } from "@/types/login";
-import { LoginResponse } from "@/types/auth";
+import useSWRMutation from 'swr/mutation';
+import appAxios from '@/lib/axios';
+import { LoginForm } from '@/types/login';
+import { LoginResponse } from '@/types/auth';
 
 interface LoginInput {
   arg: {

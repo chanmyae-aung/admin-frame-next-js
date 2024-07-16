@@ -1,15 +1,11 @@
-import axios, {
-  AxiosError,
-  AxiosResponse,
-  InternalAxiosRequestConfig
-} from "axios";
-import { getToken } from "./getToken";
+import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import { getToken } from './getToken';
 
 const appAxios = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_API_URL}`,
   headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
   },
 });
 
@@ -19,7 +15,7 @@ appAxios.interceptors.request.use(
       //TODO: add headers
       const token = await getToken();
       if (token) {
-        config.headers["Authorization"] = `Bearer ${token}`;
+        config.headers['Authorization'] = `Bearer ${token}`;
       }
     }
     return config;

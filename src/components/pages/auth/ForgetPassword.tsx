@@ -12,7 +12,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Button from "@/components/ui/button";
 import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { Form, FormField, FormItem } from "@/components/ui/form";
 import { Controller, useForm } from "react-hook-form";
 import { LoginForm, loginSchema } from "@/types/login";
 import { zodResolver } from "@hookform/resolvers/zod";

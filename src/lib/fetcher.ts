@@ -1,4 +1,4 @@
-import appAxios from "./axios";
+import appAxios from './axios';
 
-const fetcher = (url: string) => appAxios.get(url).then((res) => res.data);
+const fetcher = (url: string) => appAxios.get(url).then(res => res.data);
 export default fetcher;

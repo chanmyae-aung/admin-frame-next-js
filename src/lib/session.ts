@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import axios from "axios";
-import useSWR from "swr";
-import useSWRMutation from "swr/mutation";
-import { SessionData, defaultSession } from "./session-options";
-import { User } from "@/types/auth";
+import axios from 'axios';
+import useSWR from 'swr';
+import useSWRMutation from 'swr/mutation';
+import { SessionData, defaultSession } from './session-options';
+import { User } from '@/types/auth';
 
 export const useLoginUser = () => {
   const { ...rest } = useSWR<SessionData>(
-    "/api/session",
-    (url: string) => axios.get(url).then((res) => res.data),
+    '/api/session',
+    (url: string) => axios.get(url).then(res => res.data),
     {
       fallbackData: defaultSession,
-    },
+    }
   );
   return {
     user: rest?.data?.user,
@@ -29,9 +29,9 @@ type SessionLoginArgType = {
 };
 
 export const useSessionLogin = () =>
-  useSWRMutation("/api/session", (url: string, { arg }: SessionLoginArgType) =>
-    axios.post(url, arg),
+  useSWRMutation('/api/session', (url: string, { arg }: SessionLoginArgType) =>
+    axios.post(url, arg)
   );
 
 export const useSessionLogout = () =>
-  useSWRMutation("/api/session", (url: string) => axios.delete(url));
+  useSWRMutation('/api/session', (url: string) => axios.delete(url));
